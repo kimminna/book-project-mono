@@ -36,7 +36,7 @@ export const SearchHeader = () => {
       />
       <button
         onClick={handleSubmit}
-        className='w-[80px] cursor-pointer rounded-[5px] bg-blue-500 text-white'>
+        className='w-[80px] cursor-pointer rounded-[5px] bg-blue-400 text-white'>
         검색
       </button>
     </div>
