@@ -1,5 +1,5 @@
+import {SearchHeader} from '@/components/SearchHeader';
 import {Meta, StoryObj} from '@storybook/nextjs';
-import {SearchHeader} from './SearchHeader';
 
 const meta: Meta<typeof SearchHeader> = {
   title: 'Components/SearchHeader',
