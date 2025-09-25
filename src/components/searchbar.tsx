@@ -28,11 +28,11 @@ export default function SearchBar() {
   };
 
   return (
-    <div className='mb-[20px] flex gap-10'>
+    <div className='mt-4 flex h-12 gap-2'>
       <input
         value={search}
         onChange={handleSearch}
-        className='flex-1 rounded-[5px] border-gray-300 p-[15px] outline-none'
+        className='flex-1 rounded-[5px] border-[1px] border-gray-300 p-[15px] outline-none'
       />
       <button
         onClick={handleSubmit}

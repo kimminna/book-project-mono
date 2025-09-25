@@ -15,12 +15,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className=''>
-          <header>
+        <div className='m-auto max-h-[100%] max-w-150 bg-white px-4 py-4 shadow-2xl'>
+          <header className='h-4 text-xl font-bold'>
             <Link href={'/'}>📚 ONEBITE BOOKS</Link>
           </header>
-          <main>{children}</main>
-          <footer>제작 @kimminna</footer>
+          <main className='pt-2'>{children}</main>
+          <footer className='py-25 text-gray-400'>제작 @kimminna</footer>
         </div>
       </body>
     </html>
