@@ -15,7 +15,7 @@ import {useRouter} from 'next/navigation';
 
 import {useState} from 'react';
 
-export default function SearchBar() {
+export const SearchHeader = () => {
   const [search, setSearch] = useState<string>('');
   const router = useRouter();
 
@@ -36,9 +36,9 @@ export default function SearchBar() {
       />
       <button
         onClick={handleSubmit}
-        className='w-[80px] cursor-pointer rounded-[5px] bg-blue-400 text-white'>
+        className='w-[80px] cursor-pointer rounded-[5px] bg-blue-500 text-white'>
         검색
       </button>
     </div>
   );
-}
+};
