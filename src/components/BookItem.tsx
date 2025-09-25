@@ -1,5 +1,5 @@
-import { BookData } from "@/types/book";
-import Link from "next/link";
+import {BookData} from '@/types/book';
+import Link from 'next/link';
 
 export const BookItem = ({
   id,
@@ -11,12 +11,12 @@ export const BookItem = ({
 }: BookData) => {
   return (
     <Link href={`/book/${id}`}>
-      <img src={coverImgUrl} alt={title} />
-      <div>
-        <div>{title}</div>
-        <div>{subTitle}</div>
+      <img src={coverImgUrl} alt={title} className='w-[80px]' />
+      <div className='flex gap-[15px] border-b-[1px] border-gray-300 px-[20px] py-[10px]'>
+        <div className='font-bold'>{title}</div>
+        <div className='text-[12px]'>{subTitle}</div>
         <br />
-        <div>
+        <div className='text-gray-400'>
           {author} | {publisher}
         </div>
       </div>

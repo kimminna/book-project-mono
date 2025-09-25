@@ -1,5 +1,5 @@
-import { BookItem } from "@/components/BookItem";
-import books from "@/mocks/books.json";
+import {BookItem} from '@/components/BookItem';
+import books from '@/mocks/books.json';
 
 export default function Home() {
   return (

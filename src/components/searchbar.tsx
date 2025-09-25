@@ -1,5 +1,5 @@
-"use client";
-import { useRouter } from "next/navigation";
+'use client';
+import {useRouter} from 'next/navigation';
 // 서버 vs 클라이언트 컴포넌트 구분
 // 특정 컴포넌트가 상호작용이 있는지?
 // 입력, 클릭과 같은 상호작용은 클라이언트 컴포넌트로
@@ -13,10 +13,10 @@ import { useRouter } from "next/navigation";
 // 정적페이지 - 빌드 타임에 미리 생성된 페이지(like SSG)
 // 동적페이지 - 브라우저의 요청을 받을 때마다 생성되는 페이지 (like SSR)
 
-import { useState } from "react";
+import {useState} from 'react';
 
 export default function SearchBar() {
-  const [search, setSearch] = useState<string>("");
+  const [search, setSearch] = useState<string>('');
   const router = useRouter();
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,9 +28,15 @@ export default function SearchBar() {
   };
 
   return (
-    <div>
-      <input value={search} onChange={handleSearch} />
-      <button onClick={handleSubmit} className="cursor-pointer">
+    <div className='mb-[20px] flex gap-10'>
+      <input
+        value={search}
+        onChange={handleSearch}
+        className='flex-1 rounded-[5px] border-gray-300 p-[15px] outline-none'
+      />
+      <button
+        onClick={handleSubmit}
+        className='w-[80px] cursor-pointer rounded-[5px] bg-blue-400 text-white'>
         검색
       </button>
     </div>
