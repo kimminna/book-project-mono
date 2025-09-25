@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main # main 브랜치에 푸시될 때 실행
+      - develop
   pull_request:
     branches:
       - main # PR이 생성될 때 실행
