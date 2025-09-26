@@ -1,13 +1,17 @@
 name: 'Deploy Storybook to Chromatic'
 
+permissions:
+  contents: read
+  pull-requests: write
+
 on:
   push:
     branches:
-      - main # main 브랜치에 푸시될 때 실행
+      - main
       - develop
   pull_request:
     branches:
-      - main # PR이 생성될 때 실행
+      - main
       - develop
 
 env:
@@ -17,8 +21,8 @@ jobs:
   chromatic-deploy:
     runs-on: ubuntu-latest
     outputs:
-      storybook_url: ${{ steps.chromatic.outputs.storybookUrl}}
-      current_time: ${{steps.current-time.outputs.formattedTime}}
+      storybook_url: ${{ steps.chromatic.outputs.storybook-url }}
+      current_time: ${{ steps.current-time.outputs.formattedTime }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -40,17 +44,17 @@ jobs:
           exitZeroOnChanges: true
 
       - name: Get current time
-        uses: josStorer/get-current-time@v2
         id: current-time
+        uses: josStorer/get-current-time@v2
         with:
           format: 'YYYY년 MM월 DD일 HH시 mm분 ss초'
           utcOffset: '+09:00'
 
-    - name: Comment pull request
+      - name: Comment pull request
+        if: github.event_name == 'pull_request'
         uses: thollander/actions-comment-pull-request@v1
         with:
-          message: |
-            💄 Storybook: ${{ needs.chromatic-deploy.outputs.storybook_url }}
-            🕖 Update: ${{ needs.chromatic-deploy.outputs.current_time }}
-        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          message: |
+            💄 Storybook: ${{ steps.chromatic.outputs.storybookUrl }}
+            🕖 Update: ${{ steps.current-time.outputs.formattedTime }}
