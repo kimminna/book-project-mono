@@ -44,17 +44,21 @@ jobs:
           exitZeroOnChanges: true
 
       - name: Get current time
-        uses: josStorer/get-current-time@v2
         id: current-time
+        uses: josStorer/get-current-time@v2
         with:
           format: 'YYYY년 MM월 DD일 HH시 mm분 ss초'
           utcOffset: '+09:00'
 
-      - name: Comment pull request
-        if: github.event_name == 'pull_request'
-        uses: thollander/actions-comment-pull-request@v1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          message: |
-            💄 Storybook: ${{ needs.chromatic-deploy.outputs.storybook_url }}
-            🕖 Update: ${{ needs.chromatic-deploy.outputs.current_time }}
+comment-pr:
+  runs-on: ubuntu-latest
+  needs: chromatic-deploy
+  steps:
+    - name: PR 코멘트 남기기
+      if: github.event_name == 'pull_request'
+      uses: thollander/actions-comment-pull-request@v2
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        message: |
+          💄 Storybook: ${{ needs.chromatic-deploy.outputs.storybook_url }}
+          🕖 Update: ${{ needs.chromatic-deploy.outputs.current_time }}
