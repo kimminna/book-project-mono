@@ -47,6 +47,7 @@ jobs:
           utcOffset: '+09:00'
 
       - name: Comment pull request
+        if: github.event_name == 'pull_request'
         uses: thollander/actions-comment-pull-request@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
