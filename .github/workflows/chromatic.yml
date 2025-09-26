@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
       - main # PR이 생성될 때 실행
+      - develop
 
 env:
   CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
