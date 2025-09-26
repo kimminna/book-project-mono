@@ -56,5 +56,5 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: |
-            💄 Storybook: ${{ steps.chromatic.outputs.storybook-url }}
+            💄 Storybook: ${{ steps.chromatic.outputs.storybookUrl }}
             🕖 Update: ${{ steps.current-time.outputs.formattedTime }}
