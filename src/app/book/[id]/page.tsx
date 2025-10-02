@@ -1,10 +1,7 @@
-export default async function Page({
-  params,
-}: {
-  params: {id: string | string[]};
-}) {
+export default async function Page({params}: {params: Promise<{id: string}>}) {
+  const {id} = await params;
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${params.id}`
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${id}`
   );
   if (!response.ok) {
     return <div>오류가 발생했습니다.</div>;
