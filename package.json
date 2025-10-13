@@ -9,7 +9,7 @@
     "lint": "eslint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_4d81270f62f548e"
+    "chromatic": "npx chromatic"
   },
   "dependencies": {
     "@commitlint/cli": "^19.8.1",
